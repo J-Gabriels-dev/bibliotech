@@ -11,7 +11,6 @@ public class Livro extends  Publicacoes {
 
     public Livro(String titulo,Autor autor){
         this.titulo = titulo;
-        this.autor = autor;
         renovavel = true;
         disponivel = true;
         id++;

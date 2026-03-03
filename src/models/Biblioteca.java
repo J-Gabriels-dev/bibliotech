@@ -40,9 +40,11 @@ public class Biblioteca {
             if (veri_livro_revista(opcao,titulo,actor) instanceof  Livro){
                 publiCadastradas.add(criarLivro(titulo, actor));
                 autoresCadastrados.add(actor);
+                titulosCadastrados.add(titulo);
             }
             publiCadastradas.add(criarRevista(titulo, actor));
             autoresCadastrados.add(actor);
+            titulosCadastrados.add(titulo);
             System.out.println("\n");
             System.out.println("Deseja cadastrar outra publicação:1-Sim\n0-Não");
             continuar = sc.nextInt();
@@ -78,16 +80,16 @@ public class Biblioteca {
 
 
     public static Livro criarLivro(String titulo, Autor autor){
-        return new Livro(titulo, autor.getNome());
+        return new Livro(titulo, autor);
     }
 
     public static Revista criarRevista(String titulo,Autor autor){
-        return new Revista(titulo, autor.getNome());
+        return new Revista(titulo, autor);
     }
 
     public String buscarLivro(Publicacoes publicacao){
         if (publicacao instanceof Livro){
-           for
+           for()
             
         }
         }
