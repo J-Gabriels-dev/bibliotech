@@ -1,12 +1,11 @@
 package models;
-import interfaces.Publicacoes;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pessoa {
-    protected static int id = 0;
-    protected String nome;
-    protected Contato contato;
+    private static int id = 0;
+    private String nome;
+    private Contato contato;
 
     protected List<Publicacoes> publisEmprestados = new ArrayList();
 

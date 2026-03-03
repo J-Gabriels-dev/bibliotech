@@ -4,10 +4,10 @@ public class Revista extends  Publicacoes {
     private  boolean renovavel;
 
     private String titulo = "";
-    private Autor autor = "";
+    private Autor autor;
     private int id = 0;
 
-    public Revista(String titulo,String autor){
+    public Revista(String titulo,Autor autor){
         this.titulo = titulo;
         this.autor = autor;
         renovavel = false;
@@ -22,11 +22,11 @@ public class Revista extends  Publicacoes {
         return id;
     }
 
-    public String getAutorRevista() {
+    public Autor getAutorRevista() {
         return autor;
     }
 
-    public void setAutor(String autor) {
+    public void setAutor(Autor autor) {
         this.autor = autor;
     }
 
@@ -40,5 +40,9 @@ public class Revista extends  Publicacoes {
         double multaUsuario = multaDiaria * dias;
 
         System.out.printf("Valor total da multa:%f",multaUsuario);
+    }
+
+    public Autor getAutor() {
+        return autor;
     }
 }

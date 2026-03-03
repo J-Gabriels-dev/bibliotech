@@ -22,7 +22,7 @@ public class Livro extends  Publicacoes {
         double multaDiaria = 1.5;
         double multaUsuario = multaDiaria * dias;
 
-        System.out.printf("Valor total da multa:%f\nDo usuario:%s",multaUsuario,pessoa.nome);
+        System.out.printf("Valor total da multa:%f\nDo usuario:%s",multaUsuario,pessoa.getNome());
     }
 
     public void setAutor(Autor autor) {
