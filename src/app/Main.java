@@ -5,7 +5,7 @@ public class Main {
     static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
 
-        biblioteca.
+        biblioteca.cadastrarPubli();
 
     }
 

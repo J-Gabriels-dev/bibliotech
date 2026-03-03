@@ -1,6 +1,7 @@
 package models;
-
 import interfaces.Publicacoes;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Pessoa {
     protected static int id = 0;
@@ -10,10 +11,9 @@ public class Pessoa {
     protected List<Publicacoes> publisEmprestados = new ArrayList();
 
 
-    public Pessoa(String nome,Contato contato,Publicacoes publisEmprestados) {
+    public Pessoa(String nome,Contato contato) {
         this.nome = nome;
         this.contato = contato;
-        this.publisEmprestados = publiEmprestados;
         id++;
     }
 
@@ -37,13 +37,6 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public Publicacoes getPublisEmprestados() {
-        return publisEmprestados;
-    }
-
-    public void setPublisEmprestados(Publicacoes publisEmprestados) {
-        this.publisEmprestados = publisEmprestados;
-    }
 
     public Contato getContato() {
         return contato;

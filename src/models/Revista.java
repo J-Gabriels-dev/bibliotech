@@ -1,12 +1,10 @@
 package models;
 
-import interfaces.Publicacoes;
-
-public class Revista implements Publicacoes {
+public class Revista extends  Publicacoes {
     private  boolean renovavel;
 
     private String titulo = "";
-    private String autor = "";
+    private Autor autor = "";
     private int id = 0;
 
     public Revista(String titulo,String autor){
@@ -16,7 +14,7 @@ public class Revista implements Publicacoes {
         id++;
     }
 
-    public String getTitulo() {
+    public String getTituloRevista() {
         return titulo;
     }
 
@@ -24,7 +22,7 @@ public class Revista implements Publicacoes {
         return id;
     }
 
-    public String getAutor() {
+    public String getAutorRevista() {
         return autor;
     }
 
@@ -37,8 +35,8 @@ public class Revista implements Publicacoes {
     }
 
     @Override
-    public void calcularPrazo(int dias) {
-        int multaDiaria = 1.5;
+    public void calcularPrazo(Pessoa pessoa,int dias) {
+        double multaDiaria = 1.5;
         double multaUsuario = multaDiaria * dias;
 
         System.out.printf("Valor total da multa:%f",multaUsuario);

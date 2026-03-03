@@ -1,13 +1,12 @@
 package models;
 
-import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Multa {
     // Atributos Privados (-)
     private int id;
-    private string dataMulta;
+    private String dataMulta;
     private String causaMulta;
 
     private  List<Pessoa> pessoasMutadas = new ArrayList<>();

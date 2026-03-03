@@ -1,16 +1,15 @@
 package models;
 
-import interfaces.Publicacoes;
 
-public class Livro implements Publicacoes {
+public class Livro extends  Publicacoes {
     private boolean renovavel; // -Renovavel:bool
 
     private String titulo = "";
-    private String autor = "";
-    private bool disponivel;
+    private Autor autor;
+    private Boolean disponivel;
     private static int id = 0;
 
-    public Livro(String titulo,String autor){
+    public Livro(String titulo,Autor autor){
         this.titulo = titulo;
         this.autor = autor;
         renovavel = true;
@@ -20,13 +19,13 @@ public class Livro implements Publicacoes {
 
     @Override
     public void calcularPrazo(Pessoa pessoa,int dias) {
-        int multaDiaria = 1.5;
+        double multaDiaria = 1.5;
         double multaUsuario = multaDiaria * dias;
 
-        System.out.printf("Valor total da multa:%f\nDo usuario:%s",pessoa.ge
+        System.out.printf("Valor total da multa:%f\nDo usuario:%s",multaUsuario,pessoa.nome);
     }
 
-    public void setAutor(String autor) {
+    public void setAutor(Autor autor) {
         this.autor = autor;
     }
 
@@ -34,11 +33,18 @@ public class Livro implements Publicacoes {
         this.titulo = titulo;
     }
 
-    public bool getDisponivel() {
+    public Boolean getDisponivel() {
         return disponivel;
     }
 
-    public void setDisponivel(bool disponivel) {
-        this.disponivel = disponivel;
+    public String getTituloLivro() {
+        return titulo;
     }
+
+
+    public Autor getAutor() {
+        return autor;
+    }
+
+    
 }
