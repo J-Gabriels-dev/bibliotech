@@ -1,7 +1,7 @@
 package models;
 
 // Interface com atributos públicos
-public abstract class Publicacoes {
+public abstract class Publicacoes<T> {
     // Nota: Em Java, atributos em interfaces são 'public static final'
     public  String titulo = "";
     public  String autor = "";
@@ -9,6 +9,10 @@ public abstract class Publicacoes {
 
 
     public abstract void calcularPrazo(Pessoa pessoa,int dias);
-    
+
+    @Override
+    public String toString() {
+        return "Título: " + this.titulo + " | Autor: " + this.autor;
+    }
 }
 

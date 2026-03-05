@@ -3,56 +3,64 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Biblioteca {
 
     Scanner sc = new Scanner(System.in);
-    protected List<Publicacoes> publiCadastradas = new ArrayList<>();
+    protected List<Livro> livroCadastradas = new ArrayList<>();
+    protected List<Revista> revisCadastradas = new ArrayList<>();
     protected List<Autor> autoresCadastrados = new ArrayList<>();
     protected List<String> titulosCadastrados = new ArrayList<>();
-
+    List<Publicacoes> resultados = new ArrayList<>();
     // Método para realizar o empréstimo de uma publicação
     public void realizarEmprestimo() {
-        String nomeDolivro,nomeAutor;
+        String nomeDolivro, nomeAutor;
+        int opcao;
+        System.out.println(livroCadastradas.toString());
+        sc.nextLine();
         System.out.println("Digite o nome da publicação desejado:");
         nomeDolivro = sc.nextLine();
         System.out.println("Digite o nome do autor:");
         nomeAutor = sc.nextLine();
+        System.out.println("Você deseja buscar um:\n1-Livro\n2-Revista:");
+        opcao = sc.nextInt();
 
+        if (opcao == 1) {
+            resultados = buscarPubli(livroCadastradas, nomeDolivro, nomeAutor);
+        } else if (opcao == 2) {
+            resultados = buscarPubli(revisCadastradas, nomeDolivro, nomeAutor);
+        }
 
-
+        System.out.println(resultados);
     }
 
     // Método para cadastrar novos livros ou revistas no acervo
     public void cadastrarPubli() {
-        String titulo,autor;
-        int continuar,opcao;
+        String titulo, autor;
+        int opcao;
 
         do {
+            System.out.println("=============================");
             System.out.println("Digite o nome da publicação:");
             titulo = sc.nextLine();
+            System.out.println("=============================");
             System.out.println("Digite o nome da autor:");
             autor = sc.nextLine();
             System.out.println("\n");
-            System.out.println("Deseja cadastrar essa publicação como:1-Livro\n2-Revista:");
+            System.out.println("Deseja cadastrar essa publicação como:\n1-Livro\n2-Revista:");
             opcao = sc.nextInt();
             Autor actor = new Autor(autor);
-            if (veri_livro_revista(opcao,titulo,actor) instanceof  Livro){
-                publiCadastradas.add(criarLivro(titulo, actor));
-                autoresCadastrados.add(actor);
-                titulosCadastrados.add(titulo);
+            if (veri_livro_revista(opcao, titulo, actor) instanceof Livro) {
+                livroCadastradas.add(criarLivro(titulo, actor));
             }
-            publiCadastradas.add(criarRevista(titulo, actor));
+            else {
+                revisCadastradas.add(criarRevista(titulo, actor));
+            }
             autoresCadastrados.add(actor);
             titulosCadastrados.add(titulo);
-            System.out.println("\n");
-            System.out.println("Deseja cadastrar outra publicação:1-Sim\n0-Não");
-            continuar = sc.nextInt();
-            if (continuar == 1){
-                continue;
-            }
             break;
-        }while(continuar != 0);
+        } while (true);
     }
 
     // Método para registrar a devolução de um item
@@ -62,37 +70,37 @@ public class Biblioteca {
     }
 
 
-
-    public Publicacoes veri_livro_revista(int opcao,String titulo,Autor autor){
+    public Publicacoes veri_livro_revista(int opcao, String titulo, Autor autor) {
         int LIVRO = 1;
         int REVISTA = 2;
-        if (opcao == LIVRO){
-            return criarLivro(titulo,autor);
+        if (opcao == LIVRO) {
+            return criarLivro(titulo, autor);
         }
-        if(opcao == REVISTA){
-            return criarRevista(titulo,autor);
-        }
-        else {
+        if (opcao == REVISTA) {
+            return criarRevista(titulo, autor);
+        } else {
             System.out.println("Opção indefinida");
             return null;
         }
     }
 
 
-    public static Livro criarLivro(String titulo, Autor autor){
+    public static Livro criarLivro(String titulo, Autor autor) {
         return new Livro(titulo, autor);
     }
 
-    public static Revista criarRevista(String titulo,Autor autor){
+    public static Revista criarRevista(String titulo, Autor autor) {
         return new Revista(titulo, autor);
     }
 
-    public String buscarLivro(Publicacoes publicacao){
-        if (publicacao instanceof Livro){
-           for()
-            
-        }
-        }
-        
+    public List<Publicacoes> buscarPubli(List<Publicacoes> listaParaBusca, String titulo, String autor) {
+        if (listaParaBusca == null) return new ArrayList<>(); // Proteção contra null
+
+        return listaParaBusca.stream()
+                .filter(p -> p.titulo.contains(titulo))
+                .filter(p -> p.autor.contains(autor))
+                .collect(Collectors.toList());
     }
+
+
 }
