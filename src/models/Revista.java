@@ -5,6 +5,7 @@ public class Revista extends  Publicacoes {
 
     private String titulo = "";
     private Autor autor;
+    private Boolean disponivel;
     private int id = 0;
 
     public Revista(String titulo,Autor autor){
@@ -12,6 +13,11 @@ public class Revista extends  Publicacoes {
         this.autor = autor;
         renovavel = false;
         id++;
+    }
+
+    @Override
+    public String toString() {
+        return "Título: " + this.titulo + " | Autor: " + this.autor.getNome();
     }
 
     public String getTituloRevista() {

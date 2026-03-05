@@ -16,6 +16,10 @@ public class Autor{
         id++;
     }
 
+    public String toString() {
+        return "| Autor: " + this.nome;
+    }
+
     public static int getId() {
         return id;
     }
