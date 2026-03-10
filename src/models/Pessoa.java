@@ -7,7 +7,7 @@ public class Pessoa {
     private String nome;
     private Contato contato;
 
-    protected List<Publicacoes> publisEmprestados = new ArrayList();
+    protected List<Publicacoes> publisEmprestados = new ArrayList<>();
 
 
     public Pessoa(String nome,Contato contato) {
@@ -45,4 +45,7 @@ public class Pessoa {
         this.contato = contato;
     }
 
+    public void cadastrarEmprestimo(Publicacoes publicacoes) {
+        publisEmprestados.add(publicacoes);
+    }
 }

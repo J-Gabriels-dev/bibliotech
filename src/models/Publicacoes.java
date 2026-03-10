@@ -1,19 +1,24 @@
 package models;
 
-// Interface com atributos públicos
 public abstract class Publicacoes {
-    // Nota: Em Java, atributos em interfaces são 'public static final'
-    public  String titulo = "";
-    public  String autor = "";
-    public  static int id = 0;
-    public Boolean disponivel;
+    public String titulo;
+    public Autor autor;
+    public static int contadorId = 0; // Nome alterado para clareza
+    public int id; // ID individual de cada livro
+    public Boolean disponivel = true;
+    public boolean renovavel;
+    public Publicacoes() {
 
-    private Autor actor;
-    public abstract void calcularPrazo(Pessoa pessoa,int dias);
+    }
+
+    public abstract void calcularPrazo(Pessoa pessoa, int dias);
+
+    public String getTitulo() { return titulo; }
+    public Autor getAutor() { return autor; }
 
     @Override
     public String toString() {
-        return "Título: " + this.titulo + " | Autor: " + this.actor.getNome();
+        return "ID: " + id + " | Título: " + this.titulo + " | Autor: " + this.autor.getNome();
     }
-}
 
+}
