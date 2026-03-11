@@ -1,4 +1,4 @@
-package models;
+package Models;
 
 public class FactoryPublicacao {
     public static Publicacoes  createPubli(String type, String titulo, Autor autor) {

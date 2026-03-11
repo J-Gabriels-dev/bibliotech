@@ -1,4 +1,4 @@
-package models;
+package Models;
 
 public class Revista extends Publicacoes {
     private boolean renovavel;

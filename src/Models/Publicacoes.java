@@ -1,4 +1,4 @@
-package models;
+package Models;
 
 public abstract class Publicacoes {
     public String titulo;
